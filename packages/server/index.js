@@ -8,8 +8,7 @@ import rentalRoutes from "./routes/rentals";
 import userRoutes from "./routes/users";
 import bookingRoutes from "./routes/booking";
 import imageUploadRoute from "./routes/image-upload";
-console.log(config)
-// Connect to mongoose
+
 mongoose
   .connect(config.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
