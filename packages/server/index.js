@@ -1,13 +1,9 @@
-import express from "express"
+import express from "express";
 import mongoose from "mongoose";
-import path from "path"
-import { config } from './config'
+import path from "path";
+import { config } from "./config";
 import FakeDb from "./fake-db";
-
-import rentalRoutes from "./routes/rentals";
-import userRoutes from "./routes/users";
-import bookingRoutes from "./routes/booking";
-import imageUploadRoute from "./routes/image-upload";
+import { rentalRoutes, bookingRoutes, userRoutes, imageRoutes } from "./routes";
 
 mongoose
   .connect(config.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -20,15 +16,13 @@ mongoose
   .catch(err => {
     console.log(err);
   });
-// App Init
 const app = express();
-// Body Parser
 app.use(express.json());
-// Routing
+
 app.use("/api/v1/rentals", rentalRoutes);
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/bookings", bookingRoutes);
-app.use("/api/v1", imageUploadRoute);
+app.use("/api/v1", imageRoutes);
 
 if (process.env.NODE_ENV === "production") {
   const appPath = path.join(__dirname, "..", "build");
@@ -38,9 +32,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// Port
 const PORT = process.env.PORT || 3001;
-// Listening
 app.listen(PORT, () => {
   console.log("Connected to ", PORT);
 });

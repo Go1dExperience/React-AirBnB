@@ -1,6 +1,4 @@
-import Rental from "./models/rental";
-import User from "./models/user";
-import Booking from "./models/booking";
+import { Booking, User, Rental } from "./models";
 import fakeData from "./data.json";
 
 class FakeDb {

@@ -7,4 +7,4 @@ router.post("", authMiddleware, createBooking);
 
 router.get("/manage", authMiddleware, getUserBookings);
 
-export default router;
+export const bookingRoutes = router;

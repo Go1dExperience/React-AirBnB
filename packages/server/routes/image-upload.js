@@ -13,9 +13,8 @@ router.post("/image/upload", authMiddleware, function (req, res) {
         errors: [{ title: "Upload Error", detail: err.message }],
       });
     }
-
     return res.json({ imageUrl: req.file.location });
   });
 });
 
-export default router;
+export const imageRoutes = router;

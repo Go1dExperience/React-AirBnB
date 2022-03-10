@@ -1,4 +1,4 @@
-import User from "../models/user";
+import { User } from "../models";
 import { normalizeErrors, validateErrors } from "../helpers/mongoose";
 import jwt from "jsonwebtoken";
 import { config } from "../config";

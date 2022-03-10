@@ -1,7 +1,5 @@
 import moment from "moment";
-import Booking from "../models/booking";
-import Rental from "../models/rental";
-import User from "../models/user";
+import { Booking, Rental, User } from "../models";
 import { normalizeErrors } from "../helpers/mongoose";
 
 export const createBooking = function (req, res) {

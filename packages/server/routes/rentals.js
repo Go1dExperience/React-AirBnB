@@ -1,6 +1,5 @@
 import express from "express";
-import Rental from "../models/rental";
-import User from "../models/user";
+import { User, Rental } from "../models";
 import { authMiddleware } from "../controllers/user";
 import { normalizeErrors, validateErrors } from "../helpers/mongoose";
 import { createRentalValidation } from "../validators/validator";
@@ -24,7 +23,7 @@ router.get("/manage", authMiddleware, function (req, res) {
       return res.json(rentals);
     });
 });
-// Find Rental
+
 router.get("/:id", (req, res) => {
   Rental.findById(req.params.id)
     .populate("user", "username -_id")
@@ -43,7 +42,7 @@ router.get("/:id", (req, res) => {
       res.json(foundRental);
     });
 });
-// Find Rentals
+
 router.get("", (req, res) => {
   const city = req.query.city;
   const query = city
@@ -73,7 +72,7 @@ router.get("", (req, res) => {
       return res.json(rentals);
     });
 });
-// Create New Rental Endpoint
+
 router.post("", authMiddleware, createRentalValidation, (req, res) => {
   const {
     title,
@@ -116,7 +115,7 @@ router.post("", authMiddleware, createRentalValidation, (req, res) => {
     });
   }
 });
-// Delete Rental Endpoint
+
 router.delete("/:id", authMiddleware, function (req, res) {
   const user = res.locals.user;
 
@@ -163,6 +162,5 @@ router.delete("/:id", authMiddleware, function (req, res) {
       });
     });
 });
-// Manage section
 
-export default router;
+export const rentalRoutes = router;
