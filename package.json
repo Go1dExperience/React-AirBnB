@@ -1,0 +1,18 @@
+{
+  "name": "@mono-react/root",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start:server": "lerna exec --scope @mono-react/server -- yarn start",
+    "start:client": "lerna exec --scope @mono-react/client -- yarn start"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}

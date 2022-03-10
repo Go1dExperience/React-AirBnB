@@ -1,0 +1,28 @@
+{
+  "name": "@mono-react/server",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1087.0",
+    "axios": "^0.26.0",
+    "bcrypt": "^5.0.1",
+    "camel-case": "^4.1.2",
+    "express": "^4.17.3",
+    "express-validator": "^6.14.0",
+    "http-proxy-middleware": "^2.0.3",
+    "jquery": "^3.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^6.2.4",
+    "multer": "^1.4.4",
+    "multer-s3": "^2.10.0",
+    "popper.js": "^1.16.1"
+  }
+}
