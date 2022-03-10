@@ -1,17 +1,18 @@
-const express = require("express");
-const router = express.Router();
-const Rental = require("../models/rental");
-const User = require("../models/user");
-const userCtrl = require("../controllers/user");
-const { normalizeErrors, validateErrors } = require("../helpers/mongoose");
-const { createRental } = require("../validators/validator");
-const { validationResult } = require("express-validator");
+import express from "express";
+import Rental from "../models/rental";
+import User from "../models/user";
+import { authMiddleware } from "../controllers/user";
+import { normalizeErrors, validateErrors } from "../helpers/mongoose";
+import { createRentalValidation } from "../validators/validator";
+import { validationResult } from "express-validator";
 
-router.get("/secret", userCtrl.authMiddleware, (req, res) => {
+const router = express.Router();
+
+router.get("/secret", authMiddleware, (req, res) => {
   res.json({ secret: true });
 });
 // Remember placeholder should be last in order
-router.get("/manage", userCtrl.authMiddleware, function (req, res) {
+router.get("/manage", authMiddleware, function (req, res) {
   const user = res.locals.user;
   // Wherer is like findOne with user query
   Rental.where({ user })
@@ -73,7 +74,7 @@ router.get("", (req, res) => {
     });
 });
 // Create New Rental Endpoint
-router.post("", userCtrl.authMiddleware, createRental, (req, res) => {
+router.post("", authMiddleware, createRentalValidation, (req, res) => {
   const {
     title,
     city,
@@ -116,7 +117,7 @@ router.post("", userCtrl.authMiddleware, createRental, (req, res) => {
   }
 });
 // Delete Rental Endpoint
-router.delete("/:id", userCtrl.authMiddleware, function (req, res) {
+router.delete("/:id", authMiddleware, function (req, res) {
   const user = res.locals.user;
 
   Rental.findById(req.params.id)
@@ -164,4 +165,4 @@ router.delete("/:id", userCtrl.authMiddleware, function (req, res) {
 });
 // Manage section
 
-module.exports = router;
+export default router;

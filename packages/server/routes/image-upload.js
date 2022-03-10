@@ -1,13 +1,14 @@
-const express = require("express");
+import express from "express";
+import { authMiddleware } from "../controllers/user";
+import upload from "../services/image-upload";
+
 const router = express.Router();
-const UserCtrl = require("../controllers/user");
-const upload = require("../services/image-upload");
 const singleUpload = upload.single("image");
 
-router.post("/image/upload", UserCtrl.authMiddleware, function (req, res) {
+router.post("/image/upload", authMiddleware, function (req, res) {
   singleUpload(req, res, function (err) {
     if (err) {
-        console.log({ err })
+      console.log({ err });
       return res.status(422).send({
         errors: [{ title: "Upload Error", detail: err.message }],
       });
@@ -17,4 +18,4 @@ router.post("/image/upload", UserCtrl.authMiddleware, function (req, res) {
   });
 });
 
-module.exports = router;
+export default router;

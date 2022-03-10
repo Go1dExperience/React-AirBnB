@@ -1,13 +1,14 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const config = require("./config");
-const FakeDb = require("./fake-db");
-const path = require("path");
+import express from "express"
+import mongoose from "mongoose";
+import path from "path"
+import { config } from './config'
+import FakeDb from "./fake-db";
 
-const rentalRoutes = require("./routes/rentals");
-const userRoutes = require("./routes/users");
-const bookingRoutes = require("./routes/booking");
-const imageUploadRoute = require("./routes/image-upload");
+import rentalRoutes from "./routes/rentals";
+import userRoutes from "./routes/users";
+import bookingRoutes from "./routes/booking";
+import imageUploadRoute from "./routes/image-upload";
+console.log(config)
 // Connect to mongoose
 mongoose
   .connect(config.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })

@@ -1,16 +1,10 @@
-// Middleware to export to users routes
-// Destination: /api/v1/users
+import User from "../models/user";
+import { normalizeErrors, validateErrors } from "../helpers/mongoose";
+import jwt from "jsonwebtoken";
+import { config } from "../config";
+import { validationResult } from "express-validator";
 
-const User = require("../models/user");
-const { normalizeErrors, validateErrors } = require("../helpers/mongoose");
-const jwt = require("jsonwebtoken");
-const config = require("../config");
-const { validationResult } = require("express-validator");
-
-/////////////////////////////////////////////////////////////////////////////////////////
-// AUTH ROUTE
-/////////////////////////////////////////////////////////////////////////////////////////
-exports.auth = function (req, res) {
+export const auth = function (req, res) {
   const { email, password } = req.body;
   const errors = validationResult(req);
   // Check for Error
@@ -58,10 +52,7 @@ exports.auth = function (req, res) {
     });
   }
 };
-/////////////////////////////////////////////////////////////////////////////////////////
-// AUTH MIDDLEWARE
-/////////////////////////////////////////////////////////////////////////////////////////
-exports.authMiddleware = function (req, res, next) {
+export const authMiddleware = function (req, res, next) {
   // Request from fron-end comes with config.headers.Authorization.
   const token = req.headers.authorization;
 
@@ -96,15 +87,10 @@ exports.authMiddleware = function (req, res, next) {
     }
   });
 };
-// Pass the token to the function to decode it
 function passToken(token) {
   return (decoded = jwt.verify(token.split(" ")[1], config.SECRET));
 }
-/////////////////////////////////////////////////////////////////////////////////////////
-// REGISTER ROUTE
-/////////////////////////////////////////////////////////////////////////////////////////
-//Route: /register
-exports.register = function (req, res) {
+export const register = function (req, res) {
   const { username, email, password, passwordConfirm } = req.body;
   // Check for empty string
   const errors = validationResult(req);
