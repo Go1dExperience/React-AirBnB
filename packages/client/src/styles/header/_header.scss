@@ -1,0 +1,65 @@
+.navbar {
+    padding: 20px;
+    margin-bottom: 40px;
+    background-color: $main-black-color;
+  
+    .bwm-search {
+      height: 50px;
+      width: 300px !important;
+    }
+  
+    .navbar-brand {
+      margin-right: 30px;
+      font-size: 27px;
+      letter-spacing: 1px;
+      color: $main-color !important;
+      font-weight: 500;
+      img {
+        height: 28px;
+        margin-left: -5px;
+      }
+    }
+  
+    .nav-item {
+      font-size: 14px;
+      font-weight: 700;
+    }
+  
+    .btn-bwm-search {
+      border-color: $main-color;
+      color: $main-color;
+  
+      &:hover, &:focus, &:active {
+        background-color: transparent !important;
+        border-color: $main-color !important;
+        color: $main-color !important;
+        box-shadow: none;
+      }
+    }
+  
+    .nav-item {
+      color: $main-white-color;
+    }
+    .dropdown-menu {
+      .dropdown-item {
+        font-size: 13px;
+
+        &:active {
+          background-color: $main-color;
+        }
+
+      }
+    }
+  }
+.clickable {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  margin: 9px 10px;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: none ;
+  cursor: pointer;
+}

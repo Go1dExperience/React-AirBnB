@@ -1,0 +1,45 @@
+@import 'variables.scss';
+@import './header/header.scss';
+@import './form/form.scss';
+@import './rental/rental-listing.scss';
+@import './rental/rental-detail.scss';
+@import './booking/booking.scss';
+@import './rental/rental-manage';
+@import './editable/editable-component';
+
+html, body, #root, #root>div {
+    height: 100%;
+    margin: 0;
+}
+body{
+    font-weight: 400;
+}
+.page-title{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.apartment{
+    color: #a72da3
+}
+.house{
+    color: #bf1818;
+}
+.condo{
+    color: #d68000
+}
+.btn-bwm {
+    background-color: white;
+    border-color: $main-color;
+    color: $main-color;
+    border-radius: 0;
+    margin: 5px;
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: $main-color !important;
+        background-color: $main-color !important;
+        color: white;
+    }
+}

@@ -1,0 +1,52 @@
+
+#userBookings {
+    .card {
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+  
+    .card-block {
+      padding: 20px;
+    }
+  
+    .card-header {
+      text-transform: capitalize;
+    }
+  
+    .card-title {
+      font-size: 20px;
+      height: 30px;
+      margin-bottom: 30px;
+    }
+  
+    .booking {
+      &-desc {
+        font-size: 16px;
+      }
+  
+      &-days {
+        font-size: 14px;
+        font-weight: bold;
+      }
+  
+      &-price-value {
+        font-weight: 700;
+      }
+    }
+  
+    .btn-bwm {
+      color: $main-color;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px;
+      &:hover,
+      &:focus,
+      &:active {
+          border-color: $main-color !important;
+          background-color: $main-color !important;
+          color: white;
+    } 
+  }
+}
