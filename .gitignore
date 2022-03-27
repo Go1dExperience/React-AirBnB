@@ -1,2 +1,5 @@
 node_modules
 /packages/server/config/index.js
+/packages/server/dist
+yarn.lock
+/packages/*/package-lock.json
