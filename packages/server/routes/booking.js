@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import { createBooking, getUserBookings } from "../controllers/booking";
+import { createBooking, getUserBookings } from "../controllers";
 import { authMiddleware } from "../controllers/user";
 
 router.post("", authMiddleware, createBooking);

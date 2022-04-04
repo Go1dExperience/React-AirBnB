@@ -35,7 +35,8 @@
     "start": "react-scripts start",
     "start:dev": "npm-run-all scss start",
     "scss": "node-sass ./src/App.scss -o ./src",
-    "build": "react-scripts build",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all scss build-js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

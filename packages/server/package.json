@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "nodemonConfig": {
-    "exec": "npm start",
+    "exec": "npm run dev",
     "watch": [
       "server/*"
     ],
@@ -17,18 +17,12 @@
     "clean": "rimraf dist",
     "build": "npm-run-all clean transpile",
     "server": "node ./dist/index",
-    "start": "npm-run-all build server",
-    "watch:dev": "nodemon"
+    "dev": "SET NODE_ENV=development & npm-run-all build server",
+    "prod": "SET NODE_ENV=production & npm-run-all build server",
+    "watch:dev": "nodemon",
+    "start": "npm run prod"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "plugins": [
-      "@babel/plugin-transform-runtime"
-    ]
-  },
-  "author": "",
+  "author": "GoldXPR",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.1087.0",

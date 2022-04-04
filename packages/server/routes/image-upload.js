@@ -1,5 +1,5 @@
 import express from "express";
-import { authMiddleware } from "../controllers/user";
+import { authMiddleware } from "../controllers";
 import upload from "../services/image-upload";
 
 const router = express.Router();

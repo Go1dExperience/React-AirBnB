@@ -1,6 +1,6 @@
 import express from "express";
 import { User, Rental } from "../models";
-import { authMiddleware } from "../controllers/user";
+import { authMiddleware } from "../controllers";
 import { normalizeErrors, validateErrors } from "../helpers/mongoose";
 import { createRentalValidation } from "../validators/validator";
 import { validationResult } from "express-validator";
