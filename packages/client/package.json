@@ -32,8 +32,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "start:dev": "npm-run-all scss start",
+    "start:dev": "react-scripts start",
+    "start": "npm-run-all scss start:dev",
     "scss": "node-sass ./src/App.scss -o ./src",
     "build-js": "react-scripts build",
     "build": "npm-run-all scss build-js",

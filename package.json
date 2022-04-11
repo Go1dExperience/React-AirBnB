@@ -8,10 +8,8 @@
     "packages/*"
   ],
   "scripts": {
-    "start:server": "lerna exec --scope @mono-react/server -- yarn watch:dev",
-    "start:client": "lerna exec --scope @mono-react/client -- yarn start:dev",
-    "build:server": "lerna exec --scope @mono-react/server -- yarn build",
-    "build:client": "lerna exec --scope @mono-react/client -- yarn build"
+    "start": "lerna run start",
+    "build": "lerna run build"
   },
   "dependencies": {},
   "devDependencies": {
