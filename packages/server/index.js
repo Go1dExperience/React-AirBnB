@@ -2,14 +2,14 @@ import express from "express";
 import mongoose from "mongoose";
 import path from "path";
 import { config } from "./config";
-import FakeDb from "./fake-db";
+// import FakeDb from "./fake-db";
 import { rentalRoutes, bookingRoutes, userRoutes, imageRoutes } from "./routes";
 
 mongoose
   .connect(config.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     if (process.env.NODE_ENV !== "production") {
-      const fakeDb = new FakeDb();
+      // const fakeDb = new FakeDb();
       // fakeDb.seedDB();
     }
   })
